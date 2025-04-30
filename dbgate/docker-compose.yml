@@ -1,0 +1,10 @@
+version: '3'
+
+  #dbgate是连接数据库的客户端启动后可以直接用http连接
+services:
+  dbgate:
+    image: dbgate/dbgate
+    container_name: dbgate
+    restart: always
+    ports:
+      - 8483:3000

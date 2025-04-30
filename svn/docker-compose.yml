@@ -1,0 +1,11 @@
+services:
+  svn:
+    image: 'elleflorio/svn-server:latest'
+    container_name: svn-server
+    restart: always
+    ports:
+      - '3080:80'
+      - '3690:3690'
+    volumes:
+      - './conf/svn_config:/etc/subversion/'
+      - './conf/svn_repo:/home/svn'

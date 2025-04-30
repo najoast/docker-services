@@ -1,0 +1,18 @@
+services:
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    cap_add:
+      - SYS_NICE
+    restart: always
+    environment:
+      - MYSQL_DATABASE=quotes
+      - MYSQL_ROOT_PASSWORD=your_root_password
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql/conf.d:/etc/mysql/conf.d
+volumes:
+  mysql_data:
+    driver: local
